@@ -24,6 +24,5 @@ select first_name AS Имя, sum(age) AS Суммарный_возраст from 
 --3
 select first_name AS Имя, min(age) AS Юный_возраст from employee GROUP BY first_name;
 --4
-select first_name AS Имя, max(age) AS max_age from employee WHERE first_name IN (
-    select first_name from employee GROUP BY first_name HAVING count(*) > 1)
-                                                 GROUP BY first_name ORDER BY max_age;
+select first_name AS Имя, max(age) AS max_age from employee GROUP BY first_name
+        HAVING count(*) > 1 ORDER BY max_age;
